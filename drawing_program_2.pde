@@ -1,52 +1,57 @@
-int frame = 800;
-int frame2 = 800;
-int col1 = 255;
-int col2 = 255;
-int col3 = 255;
-int rx = 0;
+//int's
+
+int frame = 800; //width
+int frame2 = 800; //height
+int col1 = 255; //colour value 1
+int col2 = 255; //colour value 2
+int col3 = 255; //colour value 3
+int rx = 0; //rectangle x value 1
 int ry = 700;
-int rx2 = frame/5;
-int rx3 = frame - ((frame/5)*3);
-int rx4 = frame -((frame/5)*2);
-int rx5 = frame -((frame/5));
-int rh = 700;
-int w = 8;
-int e = 10;
-int s = 8;
-int r1 = 10;
-int r2 = 30;
-int r3 = 50;
-int r4 = 70;
-int r5 = 90;
-int r6 = 110;
-int r7 = 130;
-int r8 = 150;
-int r9 = 170;
-int lCol = 0;
-int i;
+int rx2 = frame/5; //rectangle x value 2
+int rx3 = frame - ((frame/5)*3); //rectangle x value 3
+int rx4 = frame -((frame/5)*2); //rectangle x value 4
+int rx5 = frame -((frame/5)); //rectangle x value 5
+int rh = 700; //rectangle heigh value 0
+int w = 8; //width and height of sroke boxes
+int s = 8; //strokeweight value
+int r1 = 10; //rectangle 1 Y value
+int r2 = 30; //rectangle 2 Y value
+int r3 = 50; //rectangle 3 Y value
+int r4 = 70; //rectangle 4 Y value
+int r5 = 90; // rectangle 5 Y value
+int r6 = 110; //rectangle 6 Y value
+int r7 = 130; //rectangle 7 Y value
+int r8 = 150; // rectangle 8 Y value
+int r9 = 170; //rectangle 9 Y value
+int lCol = 0; //line colour value
+int i; //used in for loops
 
 
 void settings() {
-  size(frame, frame2); 
+  size(frame, frame2); //size of window
 }
 
 void setup() {
- background(255,255,255); 
+ background(255,255,255); //background as white
 }
 
 void keyPressed() {
-  if(key=='q') {background(255,255,255);}
-  if(key=='w') {background(255,0,0);}
-  if(key=='e') {background(0,255,0);}
-  if(key=='r') {background(0,0,255);}
+  if(key=='q') {background(255,255,255);} //if q is pressed, background is white
+  if(key=='w') {background(255,0,0);} //if w is pressed, background is red
+  if(key=='e') {background(0,255,0);} //if e is pressed, background is green
+  if(key=='r') {background(0,0,255);} //if r is pressed, background is blue
   
   if(key=='t') {  
-    background(0,0,0);
+    background(0,0,0); //if t is pressed, background is black and line colour is white
     lCol=255;
   } else{lCol=0;}
+  if(key=='p') {
+  rect(pmouseX-random(0,10),pmouseY-random(0,10),random(0,10),random(0,10)); //if p is pressed, draw a rect at about where your mouse is
+  }
 }
 
 void draw() {
+  //stroke boxes and changing strokeweight
   fill(255,255,255);
   strokeWeight(8);
   rect(0,0,100,170);
@@ -119,8 +124,9 @@ void draw() {
   }
   strokeWeight(s);
   if (mousePressed) {
-    line(mouseX,mouseY, pmouseX,pmouseY);
+    line(mouseX,mouseY, pmouseX,pmouseY); //draw line when mouse is pressed
   }
+  //boxes to change line colour and drawing them
   stroke(lCol);
   strokeWeight(8);
   fill(0,0,0);
